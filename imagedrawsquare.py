@@ -24,12 +24,15 @@ def imgGen(values):
     draw = ImageDraw.Draw(img)
 
     #x lines
-    draw.line((1, height, 1, 0), fill=(R, G, B), width=lineWidth)                                   #left
-    draw.line((width-lineWidth+1, height, width-lineWidth+1, 0), fill=(R, G, B), width=lineWidth)   #right
+    draw.line(((lineWidth/2), height, (lineWidth/2), 0), fill=(R, G, B), width=lineWidth)                                   #left
+    draw.line((width-lineWidth+(lineWidth/2), height, width-lineWidth+(lineWidth/2), 0), fill=(R, G, B), width=lineWidth)   #right
 
+    # top line offset
+    offset=(lineWidth/2)-1 if (lineWidth % 2 == 0)  else (lineWidth/2)
+    
     #y lines
-    draw.line((0, 1, width, 1), fill=(R, G, B), width=lineWidth)                                     #top
-    draw.line((0, height-lineWidth+1, width, height-lineWidth+1),fill=(R, G, B), width=lineWidth)    #bottom
+    draw.line((0, offset, width, offset), fill=(R, G, B), width=lineWidth)                                     #top
+    draw.line((0, height-lineWidth+(lineWidth/2), width, height-lineWidth+(lineWidth/2)),fill=(R, G, B), width=lineWidth)    #bottom
 
     #img.show()
     fn=fn+".png"
