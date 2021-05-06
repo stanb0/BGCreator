@@ -2,6 +2,7 @@ import PySimpleGUI as sg
 import imagedrawsquare
 
 def windowInit():
+    values=[0,0,0,0,0,0,0,0,0,0]
     #monitor size
     height=0
     width=0
